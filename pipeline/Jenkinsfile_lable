@@ -1,0 +1,24 @@
+pipeline {
+    // run the pipeline job on slave 1 
+     agent {lable 'slave1'} 
+     stages {
+        stage ('STAGE1'){
+            steps {
+                echo "This is stage 1"
+                sh '''
+                sleep 5
+                echo "This is linux command"
+                '''
+            }
+        }
+        stage ('STAGE2'){
+            steps {
+                echo "Building java code "
+                sh '''
+                #!/bin/bash
+                sleep 5
+                '''
+            }
+        }
+     }
+    }

@@ -1,8 +1,13 @@
 pipeline {
-    agent any
-    
+    // if i choose none don't decide agent at pipeline level,
+    //agent decide at stage level
+   // agent {label 'slave1 && slave2'}
+    // agent {label 'slave1 || slave2'}
+    //  agent {label 'slave1 || slave2 && !master'}
+      agent {label '!master'}
     stages {
         stage('STAGE1') {
+            agent {label 'slave1'}
             steps {
                 echo "This is the stage1"
                 
@@ -13,6 +18,7 @@ pipeline {
             }
         }
         stage('STAGE2') {
+            agent {label 'slave1'}
             steps{
                 echo "This is Stage2"
                 sh '''

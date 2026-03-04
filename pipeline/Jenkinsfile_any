@@ -1,5 +1,6 @@
 pipeline {
-    agent any
+    // if i choose any it execute pipeline any availbale agent 
+    agent any 
     
     stages {
         stage('STAGE1') {
