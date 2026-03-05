@@ -2,7 +2,7 @@ pipeline {
     agent none
     parameters{
         string(name :'NAME',defaultValue:'',description :'please tell your name')
-        booleanparam (name : 'SKIP_TEST',description :'want to skip test runs to direct deploy')
+        booleanParam (name : 'SKIP_TEST',description :'want to skip test runs to direct deploy')
         choice (name :'BRANCH TO DEPLOYE',choice :['master','staging','prod'])
     }
     
