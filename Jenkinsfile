@@ -3,7 +3,7 @@ pipeline {
     parameters{
         string(name :'NAME',defaultValue:'',description :'please tell your name')
         booleanParam (name : 'SKIP_TEST',description :'want to skip test runs to direct deploy')
-        choice(name :'BRANCH TO DEPLOYE',choices :['master','staging','prod'])
+        choice(name :'BRANCH',choices :['master','staging','prod'])
     }
     
     stages {
@@ -12,7 +12,7 @@ pipeline {
             steps {
                 echo "NAME :${params.NAME}"
                 echo "SKIP_TEST :${params.SKIP_TEST}"
-                echo "BRANCH : ${params.BRANCH}"
+                echo "BRANCH TO DEPLOYE: ${params.BRANCH}"
             }
         }
     }
