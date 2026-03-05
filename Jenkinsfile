@@ -1,9 +1,9 @@
 pipeline {
     agent none
     parameters{
-        string { name :'NAME',description :'please tell your name'}
-        boolean {name : 'SKIP_TEST',description :'want to skip test runs to direct deploy'}
-        choice {name :'BRANCH',choice :['master','staging','prod']}
+        string(name :'NAME',default :'',description :'please tell your name')
+        booleanparam (name : 'SKIP_TEST',description :'want to skip test runs to direct deploy')
+        choice (name :'BRANCH',choice :['master','staging','prod'])
     }
     
     stages {
