@@ -13,6 +13,12 @@ pipeline {
                 echo "NAME :${params.NAME}"
                 echo "SKIP_TEST :${params.SKIP_TEST}"
                 echo "BRANCH TO DEPLOYE: ${params.BRANCH}"
+
+                sh '''
+                echo "NAME :${NAME}"
+                echo "SKIP_TEST :${SKIP_TEST}"  
+                echo "BRANCH TO DEPLOYE :${BRANCH}"
+                '''
             }
         }
     }
