@@ -1,5 +1,5 @@
 pipeline {
-    agent none
+    agent any
     environment {
         DOCKER_USER ='abcd4843'
         AWS_ACCESS_KEY ='7854126987415'
@@ -8,14 +8,27 @@ pipeline {
     
     stages {
         stage ('STAGE1') {
-            agent {label 'slave1'}
+              environment {
+                 STAGE ='stage1'
+        
+                }
+
             steps {
-                echo "DOCKER_USER :${DOCKER_USER}"
-                echo "AWS_ACCESS_KEY :${AWS_ACCESS_KEY}"
+                echo "DOCKER_USER :${env.DOCKER_USER}"
+                echo "AWS_ACCESS_KEY :${env.AWS_ACCESS_KEY}"
+                echo "STAGE  : ${env.STAGE}"
 
                 sh '''
                    env
+                  echo  $DOCKER_USER
                 '''
+            }
+        }
+        stage ('STAGE2'){
+            steps {
+                echo "DOCKER_USER :${env.DOCKER_USER}"
+                echo "AWS_ACCESS_KEY :${env.AWS_ACCESS_KEY}"
+                echo "STAGE  : ${env.STAGE}"
             }
         }
     }
