@@ -3,7 +3,7 @@ pipeline {
     parameters{
         string(name :'NAME',defaultValue:'',description :'please tell your name')
         booleanParam (name : 'SKIP_TEST',description :'want to skip test runs to direct deploy')
-        choice (name :'BRANCH TO DEPLOYE',choice :['master','staging','prod'])
+        choices (name :'BRANCH TO DEPLOYE',choices :['master','staging','prod'])
     }
     
     stages {
