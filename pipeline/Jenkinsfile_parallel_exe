@@ -20,9 +20,15 @@ pipeline {
                 steps{
                     echo "This is Macos testing running"
                     sh 'sleep 5'
-                }
+                    }
+               }
+           }
+            stage ('FINAL STAGE'){
+        steps {
+            echo "This is final testing"
+            sh 'sleep 5'
             }
+         }
         }
-    }
     }
 }

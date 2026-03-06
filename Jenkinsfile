@@ -23,7 +23,7 @@ pipeline {
                 }
             }
         }
-    }
+    
     stage ('FINAL STAGE'){
         steps {
             echo "This is final testing"
