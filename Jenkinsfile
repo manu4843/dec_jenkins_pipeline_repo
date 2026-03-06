@@ -22,9 +22,9 @@ pipeline {
                         exit 1
                         '''
                     }
-                    catch(err){
-                        echo "error caught : ${err}"
-                        currentBuild.result ='SUCCCESS'
+                    catch(err) {
+                        echo "Error caught : ${err}"
+                        currentBuild.result ='SUCCESS'
                         //currentStage.result ='FAILURE'
                     }
                 }
