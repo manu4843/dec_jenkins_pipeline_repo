@@ -43,8 +43,8 @@ pipeline {
                 //if you want to execute multiple condition use allof,anyof,not
                 // not : not equal
                 //want to check both branch and parameter
-                allOf  {     // all the condition must be true
-                //anyof {    // if any one condition true
+                //allOf  {     // all the condition must be true
+                anyOf {    // if any one condition true
                 branch 'main'
                  expression {params.DEPLOY ==true}
                 }
