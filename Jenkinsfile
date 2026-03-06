@@ -15,7 +15,7 @@ pipeline {
         }
         stage ('STAGE1_b'){
             steps{
-                scripts{
+                script{
                     try {
                         sh '''
                         sleep 5
