@@ -23,7 +23,7 @@ pipeline {
                         '''
                     }
                     catch(err){
-                        echo "error caught : $(err)"
+                        echo "error caught :" $(err)
                         currentBuild.result ='SUCCCESS'
                         currentstage.result ='FAILURE'
                     }
