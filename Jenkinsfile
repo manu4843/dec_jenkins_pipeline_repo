@@ -40,14 +40,17 @@ pipeline {
         stage ('when parameter'){
             // the stage will run when parameter value true
             when{
-                //if you want to execute multiple condition use allof,anyone,not
+                //if you want to execute multiple condition use allof,anyof,not
                 // not : not equal
                 //want to check both branch and parameter
                 //allof  {     // all the condition must be true
-                anyone {    // if any one condition true
+                anyof {    // if any one condition true
                 branch 'main'
                  expression {params.DEPLOY ==true}
                 }
+            }
+            steps{
+                echo "environment variables are declared inside the pipeline block "
             }
                
         }
