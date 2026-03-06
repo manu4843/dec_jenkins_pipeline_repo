@@ -1,7 +1,7 @@
 pipeline {
     agent any
     parameter {
-        booleanParam (name :'DEPLOY', description 'want to deploy to production') 
+        booleanParam (name :'DEPLOY', description :'want to deploy to production') 
     }
     environment{
         CURRENT_ENV ='prod'
