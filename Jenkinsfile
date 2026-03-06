@@ -51,10 +51,12 @@ pipeline {
             }
                
         }
+        stage ('FINAL STAGE') {
         steps {
             echo "This is final testing"
             sh 'sleep 5'
             }
+        }    
     }
     
 }
