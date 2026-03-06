@@ -1,16 +1,26 @@
 pipeline {
     agent any
     stages {
+        // Parallel execution use parallel block inside stage 
         stage('STAGE1'){
             steps {
                 echo "Thi is  stage 1 running"
                 sh 'sleep 5'
             }
         }
-        stage ('STAGE2'){
+        stage ('PARALLEL TESTING'){
+            parallel {
+                stage ('WINDOWS TESTING'){
             steps {
-                echo "This is stage 2 running"
+                echo "This is windows testing running"
                 sh 'sleep 5'
+            }
+                }
+            stage ('MACOS TESTING'){
+                steps{
+                    echo "This is Macos testing running"
+                    sh 'sleep 5'
+                }
             }
         }
     }
