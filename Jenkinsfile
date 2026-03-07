@@ -1,5 +1,6 @@
 pipeline {
     agent any
+
     parameters {
         booleanParam (name :'DEPLOY', description :'want to deploy to production') 
     }
@@ -9,23 +10,25 @@ pipeline {
     stages {
         stage ('CHECKOUT'){
             steps {
-            checkout ([$class :'GitSCM'
+            checkout([ $class :'GitSCM'
             (branches: [[name: '*/main']],
-               extensions: [], 
-               userRemoteConfigs: [[credentialsId: 'hp-git', url: 'https://github.com/manu4843/dec_jenkins_pipeline_repo.git']])
+              extensions: [],
+               userRemoteConfigs: 
+               [[credentialsId: 'manu4843', 
+               url: 'https://github.com/manu4843/dec_jenkins_pipeline_repo.git']])
             ])
              sh '''
                pwd
                ls -lrt
                 sleep 5
                 '''
-             }
-            }        
+            }
+        }        
         stage('STAGE1 WHEN BRANCH MAIN'){
             // this stage will run when the branch is main
             when {
                 expression {
-                    return env.GitSCM-BRANCH =='origin/main'
+                    return env.Git_BRANCH =='origin/main'
                 }
             }
             steps {
