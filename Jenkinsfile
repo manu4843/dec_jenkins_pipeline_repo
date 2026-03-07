@@ -7,18 +7,30 @@ pipeline {
         CURRENT_ENV ='prod'
     }
     stages {
+        stage ('CHECKOUT'){
+            checkout ([$class :'GitSCM'
+            (branches: [[name: '*/main']],
+               extensions: [], 
+               userRemoteConfigs: [[credentialsId: 'hp-git', url: 'https://github.com/manu4843/dec_jenkins_pipeline_repo.git']])
+            )]
+
+        }
         
-        stage('STAGE1 WHEN BRANCH'){
+        stage('STAGE1 WHEN BRANCH MAIN'){
             // this stage will run when the branch is main
             when {
-                branch 'main'
+                expression {
+                    return env.GitSCM-BRANCH =='origin/main'
+                }
             }
             steps {
     
             echo "This  is  stage 1 running"
              sh '''
+             pwd
+             ls -lrt
              sleep 5
-             exit 1
+             
              '''
             }
         }
@@ -34,7 +46,11 @@ pipeline {
         
         steps {
             echo "This is final testing"
-            sh 'sleep 5'
+            sh '''
+            pwd
+            ls -lrt
+            sleep 5
+            '''
              }
        }
         stage ('when parameter'){
