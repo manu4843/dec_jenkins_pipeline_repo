@@ -20,10 +20,7 @@ pipeline {
                 sleep 5
                 '''
              }
-            }
-
-        }
-        
+            }        
         stage('STAGE1 WHEN BRANCH MAIN'){
             // this stage will run when the branch is main
             when {
@@ -85,4 +82,4 @@ pipeline {
             }
         }    
     }
-    
+}   
