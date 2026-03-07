@@ -17,10 +17,10 @@ pipeline {
                [[credentialsId: 'manu4843', 
                url: 'https://github.com/manu4843/dec_jenkins_pipeline_repo.git']])
             ])
-             sh '''
-              echo GIT_BRANCH : $GIT_BRANCH
-              echo BRANCH_NAME :$BRANCH_NAME
-                '''
+             //sh '''
+              //echo GIT_BRANCH : $GIT_BRANCH
+              //echo BRANCH_NAME :$BRANCH_NAME
+                //'''
             }
         }        
         stage('STAGE1 WHEN BRANCH MAIN'){
