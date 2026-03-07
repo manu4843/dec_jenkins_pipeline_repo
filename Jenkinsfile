@@ -8,9 +8,9 @@ pipeline {
         CURRENT_ENV ='prod'
     }
     stages {
-        stage ('CHECKOUT'){
+        stage ('CHECKOUT_REPO'){
             steps {
-            checkout([ $class :'GitSCM'
+            checkout([ $class :'GitSCM',
             (branches: [[name: '*/main']],
               extensions: [],
                userRemoteConfigs: 
@@ -18,9 +18,8 @@ pipeline {
                url: 'https://github.com/manu4843/dec_jenkins_pipeline_repo.git']])
             ])
              sh '''
-               pwd
-               ls -lrt
-                sleep 5
+              echo GIT_BRANCH : $GIT_BRANCH
+              echo BRANCH_NAME :$BRANCH_NAME
                 '''
             }
         }        
