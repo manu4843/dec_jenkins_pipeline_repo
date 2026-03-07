@@ -12,7 +12,7 @@ pipeline {
             (branches: [[name: '*/main']],
                extensions: [], 
                userRemoteConfigs: [[credentialsId: 'hp-git', url: 'https://github.com/manu4843/dec_jenkins_pipeline_repo.git']])
-            )]
+            ])
 
         }
         
