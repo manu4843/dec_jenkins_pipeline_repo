@@ -11,11 +11,11 @@ pipeline {
         stage ('CHECKOUT_REPO'){
             steps {
             checkout([ $class :'GitSCM',
-            (branches: [[name: '*/main']],
+            branches: [[name: '*/main']],
               extensions: [],
                userRemoteConfigs: 
                [[credentialsId: 'manu4843', 
-               url: 'https://github.com/manu4843/dec_jenkins_pipeline_repo.git']])
+               url: 'https://github.com/manu4843/dec_jenkins_pipeline_repo.git']]
             ])
              //sh '''
               //echo GIT_BRANCH : $GIT_BRANCH
