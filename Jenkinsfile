@@ -1,9 +1,9 @@
 pipeline {
     agent any
-
-    parameters {
-        booleanParam (name :'DEPLOY', description :'want to deploy to production') 
-    }
+  triggers{
+    pollSCM('H/5 * * * *')
+  }
+   
     environment{
         CURRENT_ENV ='prod'
     }
